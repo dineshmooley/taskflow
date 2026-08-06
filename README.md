@@ -29,10 +29,12 @@ A production-ready Task Management REST API built with Spring Boot.
 1. Clone the repo
 2. Create a PostgreSQL database called `taskflow`
 3. Create `src/main/resources/application-local.properties`:
-  spring.datasource.url=jdbc:postgresql://localhost:5432/taskflow
-  spring.datasource.username=your_username
-  spring.datasource.password=your_password
-4. Run: `./mvnw spring-boot:run`
+
+  - spring.datasource.url=jdbc:postgresql://localhost:5432/taskflow
+  - spring.datasource.username=your_username
+  - spring.datasource.password=your_password
+
+5. Run: `./mvnw spring-boot:run`
 
 ## API Endpoints
 
