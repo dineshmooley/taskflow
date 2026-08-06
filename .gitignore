@@ -1,4 +1,4 @@
-HELP.md
+
 target/
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
@@ -9,6 +9,7 @@ target/
  .idea/
  *.iml
 application-local.properties
+*.log
 
 ### STS ###
 .apt_generated
