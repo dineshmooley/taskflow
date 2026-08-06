@@ -29,3 +29,28 @@ A production-ready Task Management REST API built with Spring Boot.
 1. Clone the repo
 2. Create a PostgreSQL database called `taskflow`
 3. Create `src/main/resources/application-local.properties`:
+  spring.datasource.url=jdbc:postgresql://localhost:5432/taskflow
+  spring.datasource.username=your_username
+  spring.datasource.password=your_password
+4. Run: `./mvnw spring-boot:run`
+
+## API Endpoints
+
+### Auth
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | /api/auth/register | Register new user |
+| POST | /api/auth/login | Login and get JWT token |
+
+### Tasks (require Bearer token)
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | /api/tasks | Get all tasks |
+| GET | /api/tasks/{id} | Get task by ID |
+| POST | /api/tasks | Create task |
+| PUT | /api/tasks/{id} | Update task |
+| DELETE | /api/tasks/{id} | Delete task |
+| GET | /api/tasks/status/{status} | Filter by status |
+| GET | /api/tasks/priority/{priority} | Filter by priority |
+| GET | /api/tasks/search?keyword= | Search by title |
+| GET | /api/tasks/overdue | Get overdue tasks |
