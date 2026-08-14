@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.ai.TaskRagService;
 import com.example.demo.entity.Task;
 import com.example.demo.exception.TaskNotFoundException;
 import com.example.demo.kafka.TaskEventProducer;
@@ -26,13 +27,27 @@ public class TaskService {
         return taskRepository.findAll();
     }
 
+    public List<Task> getTasksByStatus(Task.Status status) {
+
+        return taskRepository.findByStatus(status);
+
+    }
+
+    public List<Task> getTaskByKeywordIgnoreCase(String keyword) {
+
+        return taskRepository.findByTitleContainingIgnoreCase(keyword);
+
+    }
+
     public Task getTaskById(Long id) {
         return taskRepository.findById(id)
                 .orElseThrow(() -> new TaskNotFoundException(id));
     }
 
     public Task createTask(Task task) {
+
         return taskRepository.save(task);
+
     }
 
     public Task updateTask(Long id, Task updatedTask) {
